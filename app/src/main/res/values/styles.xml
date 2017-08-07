@@ -30,4 +30,9 @@
         <item name="android:padding">@dimen/dimen_padding_5dp</item>
     </style>
 
+    <style name="PopWinAnimationStyle">
+        <item name="android:windowEnterAnimation">@anim/anim_pop_window_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_pop_window_fade_out</item>
+    </style>
+
 </resources>

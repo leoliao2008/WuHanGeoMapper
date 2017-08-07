@@ -9,14 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <com.skycaster.wuhanmappingapp.customized.MapTypeToggle
-        android:id="@+id/map_activity_map_type_toggle"
-        android:layout_width="@dimen/dimen_map_toggle_size"
-        android:layout_height="@dimen/dimen_map_toggle_size"
-        android:layout_gravity="top|end"
-        android:layout_margin="@dimen/dimen_margin_10dp"
-        android:translationZ="@dimen/dimen_translation_z_5dp"/>
+    <!--<com.skycaster.wuhanmappingapp.customized.MapTypeToggle-->
+        <!--android:id="@+id/map_activity_map_type_toggle"-->
+        <!--android:layout_width="@dimen/dimen_map_toggle_size"-->
+        <!--android:layout_height="@dimen/dimen_map_toggle_size"-->
+        <!--android:layout_gravity="top|end"-->
+        <!--android:layout_margin="@dimen/dimen_margin_10dp"-->
+        <!--android:translationZ="@dimen/dimen_translation_z_5dp"/>-->
 
+    <!--<android.support.v7.widget.AppCompatSpinner-->
+        <!--android:id="@+id/map_activity_spinner_map_type"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="end"-->
+        <!--android:layout_margin="@dimen/dimen_margin_10dp"/>-->
+
+    <com.skycaster.wuhanmappingapp.customized.MapTypeSelector
+        android:id="@+id/map_activity_map_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_margin_10dp"
+        android:layout_gravity="end"
+        android:translationZ="@dimen/dimen_translation_z_5dp"/>
 
 
 </FrameLayout>

@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.skycaster.wuhanmappingapp.P.MapPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.base.BaseActivity;
-import com.skycaster.wuhanmappingapp.customized.MapTypeToggle;
+import com.skycaster.wuhanmappingapp.customized.MapTypeSelector;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
 import com.tianditu.android.maps.MapView;
 
@@ -16,7 +16,9 @@ import com.tianditu.android.maps.MapView;
 
 public class MapActivity extends BaseActivity<MapPresenter>{
     private MapView mMapView;
-    private MapTypeToggle mMapTypeToggle;
+//    private MapTypeToggle mMapTypeSelector;
+//    private Spinner mMapTypeSelector;
+    private MapTypeSelector mMapTypeSelector;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, MapActivity.class);
@@ -31,7 +33,10 @@ public class MapActivity extends BaseActivity<MapPresenter>{
     @Override
     protected void initView() {
         mMapView= (MapView) findViewById(R.id.map_activity_map_view);
-        mMapTypeToggle= (MapTypeToggle) findViewById(R.id.map_activity_map_type_toggle);
+//        mMapTypeSelector= (MapTypeToggle) findViewById(R.id.map_activity_map_type_toggle);
+//        mMapTypeSelector = (Spinner) findViewById(R.id.map_activity_spinner_map_type);
+        mMapTypeSelector = (MapTypeSelector) findViewById(R.id.map_activity_map_selector);
+
 
     }
 
@@ -39,8 +44,18 @@ public class MapActivity extends BaseActivity<MapPresenter>{
         return mMapView;
     }
 
-    public MapTypeToggle getMapTypeToggle() {
-        return mMapTypeToggle;
+//    public MapTypeToggle getMapTypeSelector() {
+//        return mMapTypeSelector;
+//    }
+
+
+//    public Spinner getMapTypeSelector() {
+//        return mMapTypeSelector;
+//    }
+
+
+    public MapTypeSelector getMapTypeSelector() {
+        return mMapTypeSelector;
     }
 
     @Override

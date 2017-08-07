@@ -11,4 +11,5 @@
     <dimen name="dimen_text_size_10sp">10sp</dimen>
     <dimen name="dimen_translation_z_2dp">2dp</dimen>
     <dimen name="dimen_map_toggle_size">60dp</dimen>
+    <dimen name="dimen_margin_2dp">2dp</dimen>
 </resources>
