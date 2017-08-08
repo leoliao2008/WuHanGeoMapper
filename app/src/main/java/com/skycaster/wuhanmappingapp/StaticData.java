@@ -22,9 +22,19 @@ public interface StaticData {
             Manifest.permission.CALL_PHONE,
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.READ_PHONE_STATE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE
     };
 
     String SP_NAME="CONFIG";
     String MAP_TYPE="MAP_TYPE";
+    String SERIAL_PORT_PATH="SERIAL_PORT_PATH";
+    String BAUD_RATE="BAUD_RATE";
+    String ACTION_RECEIVE_BROADCASTING_GPGGA_RAW_DATA ="ACTION_RECEIVE_BROADCASTING_GPGGA_RAW_DATA";
+    String LATITUDE="LATITUDE";
+    String LONGITUDE="LONGITUDE";
+    String LOCATION_BEAN="LOCATION_BEAN";
+    String ACTION_STOP_GPGGA_SERVICE="ACTION_STOP_GPGGA_SERVICE";
+    int GPGGA_SERVICE_FOREGROUND_ID =1122;
+    String PORT_DATA_RAW ="PORT_DATA_RAW";
 }

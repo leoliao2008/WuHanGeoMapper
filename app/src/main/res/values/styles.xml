@@ -30,9 +30,48 @@
         <item name="android:padding">@dimen/dimen_padding_5dp</item>
     </style>
 
+    <style name="TextViewStyleSetting">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/dimen_padding_10dp</item>
+        <item name="android:textSize">@dimen/dimen_text_size_18sp</item>
+        <item name="android:textColor">@color/selector_color_black_to_grey</item>
+    </style>
+
+
+    <style name="TextViewStyleTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_primary_round</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/dimen_padding_10dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/dimen_text_size_20sp</item>
+        <item name="android:translationZ">@dimen/dimen_translation_z_2dp</item>
+        <item name="android:layout_margin">@dimen/dimen_margin_1dp</item>
+    </style>
+
+    <style name="TextViewStyleDialogContent">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/dimen_padding_10dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/dimen_text_size_18sp</item>
+    </style>
+
+    <style name="ButtonStyleDialog">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/dimen_text_size_19sp</item>
+    </style>
+
     <style name="PopWinAnimationStyle">
         <item name="android:windowEnterAnimation">@anim/anim_pop_window_fade_in</item>
         <item name="android:windowExitAnimation">@anim/anim_pop_window_fade_out</item>
     </style>
 
+    <dimen name="dimen_margin_1dp">1dp</dimen>
 </resources>

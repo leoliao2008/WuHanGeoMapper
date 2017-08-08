@@ -1,8 +1,20 @@
 package com.skycaster.wuhanmappingapp.P;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.ActionBar;
+
+import com.skycaster.inertial_navi_lib.GPGGABean;
+import com.skycaster.inertial_navi_lib.NaviDataExtractor;
 import com.skycaster.wuhanmappingapp.M.MapFunctionModel;
+import com.skycaster.wuhanmappingapp.StaticData;
 import com.skycaster.wuhanmappingapp.activity.MapActivity;
 import com.skycaster.wuhanmappingapp.base.BasePresenter;
+import com.skycaster.wuhanmappingapp.customized.SkyCasterPositioningOverlay;
+import com.tianditu.android.maps.MapView;
 import com.tianditu.android.maps.MyLocationOverlay;
 
 /**
@@ -11,22 +23,62 @@ import com.tianditu.android.maps.MyLocationOverlay;
 
 public class MapPresenter extends BasePresenter<MapActivity> {
     private MapFunctionModel mMapFunctionModel;
-
-
+    private MapView mMapView;
+    private SkyCasterPositioningOverlay mPositioningOverlay;
+    private GPGGALocationUpdateReceiver mReceiver;
+    private NaviDataExtractor.CallBack mCallBack=new NaviDataExtractor.CallBack() {
+        @Override
+        public void onGetGPGGABean(GPGGABean bean) {
+            if(mPositioningOverlay!=null){
+                mPositioningOverlay.onPositionUpdate(bean,mMapView);
+            }
+        }
+    };
 
     public MapPresenter(MapActivity activity) {
         super(activity);
         mMapFunctionModel=new MapFunctionModel(new MyLocationOverlay(getView(),getView().getMapView()));
+        mMapView=getView().getMapView();
     }
 
     @Override
     public void initData() {
-        mMapFunctionModel.initMapView(getView().getMapView());
+        ActionBar actionBar = getView().getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.setTitle("地图页面");
+        }
+        mMapFunctionModel.initMapView(mMapView);
 
-        mMapFunctionModel.initMapTypeSelector(getView().getMapTypeSelector(),getView().getMapView());
+        mMapFunctionModel.initMapTypeSelector(getView().getMapTypeSelector(),mMapView);
 
-        mMapFunctionModel.enableMyLocation(getView().getMapView());
+//        mMapFunctionModel.enableMyLocation(mMapView); 暂不需要
+        mPositioningOverlay = new SkyCasterPositioningOverlay(getView());
+        mMapView.addOverlay(mPositioningOverlay);
 
+        initReceiver();
 
+    }
+
+    private void initReceiver(){
+        mReceiver=new GPGGALocationUpdateReceiver();
+        IntentFilter intentFilter=new IntentFilter(StaticData.ACTION_RECEIVE_BROADCASTING_GPGGA_RAW_DATA);
+        LocalBroadcastManager.getInstance(getView()).registerReceiver(mReceiver,intentFilter);
+    }
+
+    @Override
+    public void onDetachFromView() {
+        if(mReceiver!=null){
+            LocalBroadcastManager.getInstance(getView()).unregisterReceiver(mReceiver);
+            NaviDataExtractor.stopExtractingGPGGAData();
+        }
+    }
+
+    private class GPGGALocationUpdateReceiver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            byte[] data = intent.getByteArrayExtra(StaticData.PORT_DATA_RAW);
+            NaviDataExtractor.decipherData(data, data.length, mCallBack);
+        }
     }
 }

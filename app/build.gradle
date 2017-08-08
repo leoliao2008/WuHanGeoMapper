@@ -33,4 +33,6 @@ dependencies {
     compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile files('libs/tiandituapi3.0.1.jar')
+    compile files('libs/SerialPortLib_V1.0.jar')
+    compile files('libs/Inertial_Navi_Lib_V1.8.jar')
 }

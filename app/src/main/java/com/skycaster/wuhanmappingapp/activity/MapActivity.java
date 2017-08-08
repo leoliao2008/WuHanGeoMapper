@@ -16,13 +16,16 @@ import com.tianditu.android.maps.MapView;
 
 public class MapActivity extends BaseActivity<MapPresenter>{
     private MapView mMapView;
-//    private MapTypeToggle mMapTypeSelector;
-//    private Spinner mMapTypeSelector;
     private MapTypeSelector mMapTypeSelector;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, MapActivity.class);
         context.startActivity(starter);
+    }
+
+    @Override
+    protected String setActionBarTitle() {
+        return "地图界面";
     }
 
     @Override
@@ -33,8 +36,6 @@ public class MapActivity extends BaseActivity<MapPresenter>{
     @Override
     protected void initView() {
         mMapView= (MapView) findViewById(R.id.map_activity_map_view);
-//        mMapTypeSelector= (MapTypeToggle) findViewById(R.id.map_activity_map_type_toggle);
-//        mMapTypeSelector = (Spinner) findViewById(R.id.map_activity_spinner_map_type);
         mMapTypeSelector = (MapTypeSelector) findViewById(R.id.map_activity_map_selector);
 
 
@@ -43,16 +44,6 @@ public class MapActivity extends BaseActivity<MapPresenter>{
     public MapView getMapView() {
         return mMapView;
     }
-
-//    public MapTypeToggle getMapTypeSelector() {
-//        return mMapTypeSelector;
-//    }
-
-
-//    public Spinner getMapTypeSelector() {
-//        return mMapTypeSelector;
-//    }
-
 
     public MapTypeSelector getMapTypeSelector() {
         return mMapTypeSelector;
@@ -67,4 +58,5 @@ public class MapActivity extends BaseActivity<MapPresenter>{
     protected void initListener() {
 
     }
+
 }

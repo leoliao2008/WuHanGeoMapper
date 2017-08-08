@@ -5,4 +5,5 @@ package com.skycaster.wuhanmappingapp.interf;
  */
 
 public interface iModel {
+    void onDetachFromPresenter();
 }

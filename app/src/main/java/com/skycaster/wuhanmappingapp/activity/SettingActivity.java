@@ -2,48 +2,48 @@ package com.skycaster.wuhanmappingapp.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
-import com.skycaster.wuhanmappingapp.base.BaseActivity;
-import com.skycaster.wuhanmappingapp.P.TabPresenter;
+import com.skycaster.wuhanmappingapp.P.SettingPresenter;
 import com.skycaster.wuhanmappingapp.R;
+import com.skycaster.wuhanmappingapp.base.BaseActivity;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
 
 /**
- * Created by 廖华凯 on 2017/8/3.
+ * Created by 廖华凯 on 2017/8/8.
  */
 
-public class TabActivity extends BaseActivity<TabPresenter> {
-    private RecyclerView mRecyclerView;
+public class SettingActivity extends BaseActivity<SettingPresenter> {
+    private TextView tv_serialPort;
 
     public static void start(Context context) {
-        Intent starter = new Intent(context, TabActivity.class);
+        Intent starter = new Intent(context, SettingActivity.class);
         context.startActivity(starter);
     }
 
     @Override
     protected String setActionBarTitle() {
-        return "功能菜单";
+        return "系统设置";
     }
 
     @Override
     protected int setContentViewID() {
-        return R.layout.activity_tab;
+        return R.layout.activity_setting;
     }
 
     @Override
     protected void initView() {
-        mRecyclerView= (RecyclerView) findViewById(R.id.tab_recycler_view);
+        tv_serialPort= (TextView) findViewById(R.id.setting_serial_port);
 
     }
 
-    public RecyclerView getRecyclerView() {
-        return mRecyclerView;
+    public TextView getTv_serialPort() {
+        return tv_serialPort;
     }
 
     @Override
     protected iPresenter initPresenter() {
-        return new TabPresenter(this);
+        return new SettingPresenter(this);
     }
 
     @Override

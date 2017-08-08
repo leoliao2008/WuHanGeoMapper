@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.activity.MapActivity;
+import com.skycaster.wuhanmappingapp.activity.SettingActivity;
 import com.skycaster.wuhanmappingapp.activity.TabActivity;
 import com.skycaster.wuhanmappingapp.adapter.TabAdapter;
 import com.skycaster.wuhanmappingapp.base.BasePresenter;
@@ -49,9 +50,15 @@ public class TabPresenter extends BasePresenter<TabActivity> {
                     case 1:
                         break;
                     case 2:
+                        SettingActivity.start(getView());
                         break;
                 }
             }
         });
+    }
+
+    @Override
+    public void onDetachFromView() {
+
     }
 }

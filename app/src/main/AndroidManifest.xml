@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 
 
@@ -37,6 +38,9 @@
         <activity
             android:name=".activity.MapActivity"
             android:theme="@style/AppThemeFullScreenWithActionBar"/>
+        <activity android:name=".activity.SettingActivity"/>
+        <activity android:name=".activity.SerialPortActivity"/>
+        <service android:name=".service.GPGGAService"/>
     </application>
 
 </manifest>

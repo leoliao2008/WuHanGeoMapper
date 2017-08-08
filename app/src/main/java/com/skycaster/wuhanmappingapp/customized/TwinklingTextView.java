@@ -22,6 +22,7 @@ public class TwinklingTextView extends android.support.v7.widget.AppCompatTextVi
     private int mTranslate;
     private int mMeasuredWidth;
     private GradientAutoCycleListener mListener;
+    private int[] mColorGradients;
 
     public TwinklingTextView(Context context) {
         this(context,null);
@@ -33,6 +34,7 @@ public class TwinklingTextView extends android.support.v7.widget.AppCompatTextVi
 
     public TwinklingTextView(final Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mColorGradients = new int[]{Color.RED, Color.YELLOW, Color.BLUE};
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -43,7 +45,7 @@ public class TwinklingTextView extends android.support.v7.widget.AppCompatTextVi
                         0,
                         mMeasuredWidth,
                         0,
-                        new int[]{Color.RED,Color.YELLOW,Color.BLUE},
+                        mColorGradients,
                         null,
                         Shader.TileMode.MIRROR
                         );
@@ -64,7 +66,7 @@ public class TwinklingTextView extends android.support.v7.widget.AppCompatTextVi
         mTranslate+=mMeasuredWidth/20;
         mMatrix.setTranslate(mTranslate,0);
         mLinearGradient.setLocalMatrix(mMatrix);
-        if(mTranslate>=mMeasuredWidth&&mListener!=null){
+        if(mTranslate>=mMeasuredWidth*1.5&&mListener!=null){
             mListener.onCycleComplete();
             mListener=null;
         }else {

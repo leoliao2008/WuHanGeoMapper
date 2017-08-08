@@ -20,6 +20,11 @@ public class SplashActivity extends BaseActivity<SplashPresenter> {
     }
 
     @Override
+    protected String setActionBarTitle() {
+        return "欢迎界面";
+    }
+
+    @Override
     public int setContentViewID() {
         return R.layout.activity_splash;
     }

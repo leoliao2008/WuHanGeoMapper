@@ -12,4 +12,9 @@
     <dimen name="dimen_translation_z_2dp">2dp</dimen>
     <dimen name="dimen_map_toggle_size">60dp</dimen>
     <dimen name="dimen_margin_2dp">2dp</dimen>
+    <dimen name="dimen_text_size_20sp">20sp</dimen>
+    <dimen name="dimen_text_size_18sp">18sp</dimen>
+    <dimen name="dimen_text_size_19sp">19sp</dimen>
+    <dimen name="dimen_radius_3dp">3dp</dimen>
+    <dimen name="dimen_text_size_16sp">16sp</dimen>
 </resources>

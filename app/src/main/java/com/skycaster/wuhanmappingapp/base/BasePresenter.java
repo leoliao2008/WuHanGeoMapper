@@ -16,4 +16,6 @@ public abstract class BasePresenter<V extends BaseActivity> implements iPresente
     protected V getView(){
         return mView;
     }
+
+
 }

@@ -5,12 +5,13 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 
 import com.skycaster.wuhanmappingapp.StaticData;
+import com.skycaster.wuhanmappingapp.interf.iModel;
 
 /**
  * Created by 廖华凯 on 2017/8/3.
  */
 
-public class CheckPermissionModel {
+public class CheckPermissionModel implements iModel {
     private static final int REQUEST_USER_PERMISSIONS = 9527;
 
     public boolean checkPermissions(Activity activity){
@@ -47,4 +48,8 @@ public class CheckPermissionModel {
     }
 
 
+    @Override
+    public void onDetachFromPresenter() {
+
+    }
 }

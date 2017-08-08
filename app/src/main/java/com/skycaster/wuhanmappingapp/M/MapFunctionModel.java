@@ -14,23 +14,23 @@ import com.skycaster.wuhanmappingapp.adapter.MapTypeSelectorAdapter;
 import com.skycaster.wuhanmappingapp.base.BaseApplication;
 import com.skycaster.wuhanmappingapp.bean.MapType;
 import com.skycaster.wuhanmappingapp.customized.MapTypeSelector;
+import com.skycaster.wuhanmappingapp.interf.iModel;
 import com.tianditu.android.maps.MapView;
 import com.tianditu.android.maps.MyLocationOverlay;
 
 import java.util.ArrayList;
 
 import static com.tianditu.android.maps.MapView.TMapType.MAP_TYPE_IMG;
-import static com.tianditu.android.maps.MapView.TMapType.MAP_TYPE_TERRAIN;
 import static com.tianditu.android.maps.MapView.TMapType.MAP_TYPE_VEC;
 
 /**
  * Created by 廖华凯 on 2017/8/4.
  */
 
-public class MapFunctionModel {
+public class MapFunctionModel implements iModel {
 
     private MyLocationOverlay mMyLocationOverlay;
-    private PopupWindow mMapTypeWindow;
+    private PopupWindow mPopWindow;
 
     public MapFunctionModel(MyLocationOverlay myLocationOverlay) {
         mMyLocationOverlay = myLocationOverlay;
@@ -47,27 +47,28 @@ public class MapFunctionModel {
                     @Override
                     public void onGlobalLayout() {
                         mapView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                        mapView.setMapType(MAP_TYPE_VEC);
-                    }
-                });
-                break;
-            case 2:
-                mapView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        mapView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                         mapView.setMapType(MAP_TYPE_IMG);
                     }
                 });
                 break;
-            case 3:
+            case 2:
+            default:
                 mapView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
                     public void onGlobalLayout() {
                         mapView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                        mapView.setMapType(MAP_TYPE_TERRAIN);
+                        mapView.setMapType(MAP_TYPE_VEC);
                     }
                 });
+                break;
+//            case 3:
+//                mapView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+//                    @Override
+//                    public void onGlobalLayout() {
+//                        mapView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+//                        mapView.setMapType(MAP_TYPE_TERRAIN);
+//                    }
+//                });
         }
     }
 
@@ -75,30 +76,36 @@ public class MapFunctionModel {
     public void enableMyLocation(MapView mapView){
         mMyLocationOverlay.enableMyLocation();
         mMyLocationOverlay.setGpsFollow(true);
-        mapView.getOverlays().add(mMyLocationOverlay);
+        mMyLocationOverlay.setVisible(true);
+        mMyLocationOverlay.enableCompass();
+        mapView.addOverlay(mMyLocationOverlay);
     }
 
     public void disableMyLocation(MapView mapView){
         mMyLocationOverlay.disableMyLocation();
         mMyLocationOverlay.setGpsFollow(false);
-        mapView.getOverlays().remove(mMyLocationOverlay);
+        mMyLocationOverlay.disableCompass();
+        mMyLocationOverlay.setVisible(false);
+        mapView.removeOverlay(mMyLocationOverlay);
     }
 
 
+
+
     public void initMapTypeSelector(final MapTypeSelector selector, final MapView mapView){
-        updateCurrentMapType(selector);
+        updateMapTypeSelector(selector);
         selector.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mMapTypeWindow==null){
-                    mMapTypeWindow = new PopupWindow(selector.getMeasuredWidth(),selector.getMeasuredHeight()*3);
+                if(mPopWindow ==null){
+
                     ListView listView= new ListView(selector.getContext());
                     listView.setVerticalScrollBarEnabled(false);
                     listView.setOverScrollMode(View.OVER_SCROLL_NEVER);
                     final ArrayList<MapType> mapTypes=new ArrayList<>();
                     mapTypes.add(new MapType(R.drawable.ic_map_type_vector,"矢量图",MAP_TYPE_VEC));
                     mapTypes.add(new MapType(R.drawable.ic_map_type_satellite,"卫星图",MAP_TYPE_IMG));
-                    mapTypes.add(new MapType(R.drawable.ic_map_type_terrain,"地形图",MAP_TYPE_TERRAIN));
+//                    mapTypes.add(new MapType(R.drawable.ic_map_type_terrain,"地形图",MAP_TYPE_TERRAIN));
                     mapTypes.remove(selector.getMapType());
                     MapTypeSelectorAdapter adapter = new MapTypeSelectorAdapter(mapTypes, selector.getContext());
                     listView.setAdapter(adapter);
@@ -107,27 +114,29 @@ public class MapFunctionModel {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             MapType temp = mapTypes.get(position);
                             if(temp.getTiandituMapTypeCode()==selector.getMapType().getTiandituMapTypeCode()){
-                                mMapTypeWindow.dismiss();
+                                mPopWindow.dismiss();
                             }else {
                                 selector.setMapType(temp);
                                 mapView.setMapType(temp.getTiandituMapTypeCode());
                                 BaseApplication.getSharedPreferences().edit().putInt(StaticData.MAP_TYPE, temp.getTiandituMapTypeCode()).apply();
-                                mMapTypeWindow.dismiss();
-                                mMapTypeWindow=null;
+                                mPopWindow.dismiss();
+                                mPopWindow =null;
                             }
                         }
                     });
-                    mMapTypeWindow.setAnimationStyle(R.style.PopWinAnimationStyle);
-                    mMapTypeWindow.setContentView(listView);
-                    mMapTypeWindow.setBackgroundDrawable(new ColorDrawable());
-                    mMapTypeWindow.setFocusable(true);
-                    mMapTypeWindow.setOutsideTouchable(true);
-                    mMapTypeWindow.showAsDropDown(selector);
+
+                    mPopWindow = new PopupWindow(selector.getMeasuredWidth(),selector.getMeasuredHeight()*mapTypes.size());
+                    mPopWindow.setAnimationStyle(R.style.PopWinAnimationStyle);
+                    mPopWindow.setContentView(listView);
+                    mPopWindow.setBackgroundDrawable(new ColorDrawable());
+                    mPopWindow.setFocusable(true);
+                    mPopWindow.setOutsideTouchable(true);
+                    mPopWindow.showAsDropDown(selector);
                 }else {
-                    if(mMapTypeWindow.isShowing()){
-                        mMapTypeWindow.dismiss();
+                    if(mPopWindow.isShowing()){
+                        mPopWindow.dismiss();
                     }else {
-                        mMapTypeWindow.showAsDropDown(selector);
+                        mPopWindow.showAsDropDown(selector);
                     }
 
                 }
@@ -137,27 +146,30 @@ public class MapFunctionModel {
 
     }
 
-    private void updateCurrentMapType(MapTypeSelector selector){
+    private void updateMapTypeSelector(MapTypeSelector selector){
         int tiandituMapTypeCode = BaseApplication.getSharedPreferences().getInt(StaticData.MAP_TYPE, 1);
-        MapType mapType=null;
+        MapType mapType;
         switch (tiandituMapTypeCode){
             case 1:
-                mapType=new MapType(R.drawable.ic_map_type_vector,"矢量图",MAP_TYPE_VEC);
-                break;
-            case 2:
                 mapType=new MapType(R.drawable.ic_map_type_satellite,"卫星图",MAP_TYPE_IMG);
                 break;
-            case 3:
-                mapType=new MapType(R.drawable.ic_map_type_terrain,"地形图",MAP_TYPE_TERRAIN);
+            case 2:
+            default:
+                mapType=new MapType(R.drawable.ic_map_type_vector,"矢量图",MAP_TYPE_VEC);
                 break;
+//            case 3:
+//                mapType=new MapType(R.drawable.ic_map_type_terrain,"地形图",MAP_TYPE_TERRAIN);
+//                break;
         }
-        if(mapType!=null){
-            selector.setMapType(mapType);
-        }
+        selector.setMapType(mapType);
     }
 
     private void showLog(String msg){
         Log.e(getClass().getSimpleName(),msg);
     }
 
+    @Override
+    public void onDetachFromPresenter() {
+
+    }
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:text="串口设置"
+        style="@style/TextViewStyleTitle"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dimen_padding_10dp"
+        android:layout_marginLeft="@dimen/dimen_padding_10dp"
+        android:layout_marginRight="@dimen/dimen_padding_10dp"
+        android:layout_marginBottom="@dimen/dimen_margin_5dp">
+
+        <TextView
+            android:text="串口设置"
+            style="@style/TextViewStyleDialogContent"
+            />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/dialog_sp_config_spinner_path"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dimen_padding_5dp"
+        android:layout_marginLeft="@dimen/dimen_padding_10dp"
+        android:layout_marginRight="@dimen/dimen_padding_10dp"
+        android:layout_marginBottom="@dimen/dimen_margin_10dp">
+
+        <TextView
+            android:text="波特率设置"
+            style="@style/TextViewStyleDialogContent"
+            />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/dialog_sp_config_spinner_baud_rate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/dialog_sp_config_btn_confirm"
+            style="@style/ButtonStyleDialog"
+            android:text="确定"/>
+
+        <Button
+            android:id="@+id/dialog_sp_config_btn_cancel"
+            style="@style/ButtonStyleDialog"
+            android:text="取消"/>
+
+    </LinearLayout>
+
+</LinearLayout>

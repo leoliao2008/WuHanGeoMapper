@@ -1,15 +1,18 @@
 package com.skycaster.wuhanmappingapp.P;
 
 
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import com.skycaster.wuhanmappingapp.M.CheckPermissionModel;
+import com.skycaster.wuhanmappingapp.M.SerialPortModel;
 import com.skycaster.wuhanmappingapp.StaticData;
 import com.skycaster.wuhanmappingapp.activity.SplashActivity;
 import com.skycaster.wuhanmappingapp.activity.TabActivity;
 import com.skycaster.wuhanmappingapp.base.BasePresenter;
 import com.skycaster.wuhanmappingapp.customized.TwinklingTextView;
+import com.skycaster.wuhanmappingapp.service.GPGGAService;
 import com.skycaster.wuhanmappingapp.utils.AlertDialogUtil;
 
 /**
@@ -37,6 +40,12 @@ public class SplashPresenter extends BasePresenter<SplashActivity> {
 
     }
 
+    @Override
+    public void onDetachFromView() {
+        mCheckPermissionModel.onDetachFromPresenter();
+    }
+
+
     private void updateVersionCode(){
         try {
             PackageInfo info = getView().getPackageManager().getPackageInfo(getView().getPackageName(), PackageManager.GET_CONFIGURATIONS);
@@ -51,6 +60,13 @@ public class SplashPresenter extends BasePresenter<SplashActivity> {
     }
 
     public void toTabActivity(){
+
+        Intent intent=new Intent(getView(), GPGGAService.class);
+        SerialPortModel serialPortModel=new SerialPortModel();
+        intent.putExtra(StaticData.SERIAL_PORT_PATH,serialPortModel.getCurrentPath());
+        intent.putExtra(StaticData.BAUD_RATE,serialPortModel.getCurrentBaudRate().toString());
+        getView().startService(intent);
+
         getView().getTwinklingTextView().setAutoCycleListener(new TwinklingTextView.GradientAutoCycleListener() {
             @Override
             public void onCycleComplete() {
