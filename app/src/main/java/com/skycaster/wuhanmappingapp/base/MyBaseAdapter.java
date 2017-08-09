@@ -16,7 +16,7 @@ public abstract class MyBaseAdapter<T,VH extends BaseViewHolder> extends BaseAda
     private Context mContext;
     private int mItemLayoutId;
 
-    public MyBaseAdapter(ArrayList<T> list, Context context,int itemLayoutId) {
+    public MyBaseAdapter(ArrayList<T> list, Context context, int itemLayoutId) {
         mList = list;
         mContext = context;
         mItemLayoutId =itemLayoutId;

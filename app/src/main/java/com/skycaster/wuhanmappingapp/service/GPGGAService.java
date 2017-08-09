@@ -23,6 +23,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import project.SerialPort.SerialPort;
 
+import static com.skycaster.wuhanmappingapp.StaticData.GPGGA_DATA_BUFFER_SIZE;
+
 /**
  * Created by 廖华凯 on 2017/8/8.
  */
@@ -30,7 +32,7 @@ import project.SerialPort.SerialPort;
 public class GPGGAService extends Service {
     private SerialPort mSerialPort;
     private GPGGAServiceTerminateReceiver mReceiver;
-    private byte[] temp=new byte[512];
+    private byte[] temp=new byte[GPGGA_DATA_BUFFER_SIZE];
     private AtomicBoolean isContinue=new AtomicBoolean(false);
     private String mPath;
     private String mBaudRate;

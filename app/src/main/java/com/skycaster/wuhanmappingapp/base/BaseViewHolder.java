@@ -1,5 +1,6 @@
 package com.skycaster.wuhanmappingapp.base;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -14,6 +15,10 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         this.itemView=itemView;
         initChildViews();
+    }
+
+    public Context getContext(){
+        return itemView.getContext();
     }
 
     protected abstract void initChildViews();

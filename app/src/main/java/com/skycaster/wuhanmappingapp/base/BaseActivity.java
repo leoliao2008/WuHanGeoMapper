@@ -79,7 +79,7 @@ public abstract class BaseActivity<P extends iPresenter> extends AppCompatActivi
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.onDetachFromView();
+        mPresenter.onDetachedFromView();
     }
 
     public void showToast(String msg){

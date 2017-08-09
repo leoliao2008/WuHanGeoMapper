@@ -12,7 +12,7 @@ import com.skycaster.inertial_navi_lib.NaviDataExtractor;
 import com.skycaster.wuhanmappingapp.M.MapFunctionModel;
 import com.skycaster.wuhanmappingapp.StaticData;
 import com.skycaster.wuhanmappingapp.activity.MapActivity;
-import com.skycaster.wuhanmappingapp.base.BasePresenter;
+import com.skycaster.wuhanmappingapp.base.BaseActivityPresenter;
 import com.skycaster.wuhanmappingapp.customized.SkyCasterPositioningOverlay;
 import com.tianditu.android.maps.MapView;
 import com.tianditu.android.maps.MyLocationOverlay;
@@ -21,7 +21,7 @@ import com.tianditu.android.maps.MyLocationOverlay;
  * Created by 廖华凯 on 2017/8/3.
  */
 
-public class MapPresenter extends BasePresenter<MapActivity> {
+public class MapActivityPresenter extends BaseActivityPresenter<MapActivity> {
     private MapFunctionModel mMapFunctionModel;
     private MapView mMapView;
     private SkyCasterPositioningOverlay mPositioningOverlay;
@@ -35,7 +35,7 @@ public class MapPresenter extends BasePresenter<MapActivity> {
         }
     };
 
-    public MapPresenter(MapActivity activity) {
+    public MapActivityPresenter(MapActivity activity) {
         super(activity);
         mMapFunctionModel=new MapFunctionModel(new MyLocationOverlay(getView(),getView().getMapView()));
         mMapView=getView().getMapView();
@@ -54,9 +54,11 @@ public class MapPresenter extends BasePresenter<MapActivity> {
 //        mMapFunctionModel.enableMyLocation(mMapView); 暂不需要
         mPositioningOverlay = new SkyCasterPositioningOverlay(getView());
         mMapView.addOverlay(mPositioningOverlay);
+    }
 
+    @Override
+    public void onAttachedToView() {
         initReceiver();
-
     }
 
     private void initReceiver(){
@@ -66,7 +68,7 @@ public class MapPresenter extends BasePresenter<MapActivity> {
     }
 
     @Override
-    public void onDetachFromView() {
+    public void onDetachedFromView() {
         if(mReceiver!=null){
             LocalBroadcastManager.getInstance(getView()).unregisterReceiver(mReceiver);
             NaviDataExtractor.stopExtractingGPGGAData();

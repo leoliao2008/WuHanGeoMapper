@@ -68,10 +68,17 @@
         <item name="android:textSize">@dimen/dimen_text_size_19sp</item>
     </style>
 
+    <style name="TextViewStyleLocalMapAdmin">
+        <item name="android:padding">@dimen/dimen_padding_5dp</item>
+    </style>
+
     <style name="PopWinAnimationStyle">
         <item name="android:windowEnterAnimation">@anim/anim_pop_window_fade_in</item>
         <item name="android:windowExitAnimation">@anim/anim_pop_window_fade_out</item>
     </style>
 
-    <dimen name="dimen_margin_1dp">1dp</dimen>
+    <style name="ProgressBarStyleOffLineMap" parent="Base.Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_bar_drawable_off_line_map</item>
+    </style>
+
 </resources>

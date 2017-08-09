@@ -6,5 +6,7 @@ package com.skycaster.wuhanmappingapp.interf;
 
 public interface iPresenter {
     void initData();
-    void onDetachFromView();
+    void onAttachedToView();
+    void onDetachedFromView();
+
 }

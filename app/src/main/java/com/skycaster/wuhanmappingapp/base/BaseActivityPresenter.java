@@ -6,10 +6,10 @@ import com.skycaster.wuhanmappingapp.interf.iPresenter;
  * Created by 廖华凯 on 2017/8/3.
  */
 
-public abstract class BasePresenter<V extends BaseActivity> implements iPresenter {
+public abstract class BaseActivityPresenter<V extends BaseActivity> implements iPresenter {
     private V mView;
 
-    public BasePresenter(V view) {
+    public BaseActivityPresenter(V view) {
         mView = view;
     }
 
@@ -17,5 +17,13 @@ public abstract class BasePresenter<V extends BaseActivity> implements iPresente
         return mView;
     }
 
+    @Override
+    public void onDetachedFromView() {
 
+    }
+
+    @Override
+    public void onAttachedToView() {
+
+    }
 }

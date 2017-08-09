@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
-        android:text="串口设置"
+        android:text="修改串口"
         style="@style/TextViewStyleTitle"/>
 
     <LinearLayout
@@ -18,7 +18,7 @@
         android:layout_marginBottom="@dimen/dimen_margin_5dp">
 
         <TextView
-            android:text="串口设置"
+            android:text="串口路径"
             style="@style/TextViewStyleDialogContent"
             />
 
@@ -40,7 +40,7 @@
         android:layout_marginBottom="@dimen/dimen_margin_10dp">
 
         <TextView
-            android:text="波特率设置"
+            android:text="波特率"
             style="@style/TextViewStyleDialogContent"
             />
 

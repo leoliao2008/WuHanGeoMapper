@@ -4,15 +4,15 @@ import android.view.View;
 
 import com.skycaster.wuhanmappingapp.activity.SerialPortActivity;
 import com.skycaster.wuhanmappingapp.activity.SettingActivity;
-import com.skycaster.wuhanmappingapp.base.BasePresenter;
+import com.skycaster.wuhanmappingapp.base.BaseActivityPresenter;
 
 /**
  * Created by 廖华凯 on 2017/8/8.
  */
 
-public class SettingPresenter extends BasePresenter<SettingActivity> {
+public class SettingActivityPresenter extends BaseActivityPresenter<SettingActivity> {
 
-    public SettingPresenter(SettingActivity view) {
+    public SettingActivityPresenter(SettingActivity view) {
         super(view);
     }
 
@@ -27,8 +27,4 @@ public class SettingPresenter extends BasePresenter<SettingActivity> {
 
     }
 
-    @Override
-    public void onDetachFromView() {
-
-    }
 }

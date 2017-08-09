@@ -17,4 +17,14 @@
     <dimen name="dimen_text_size_19sp">19sp</dimen>
     <dimen name="dimen_radius_3dp">3dp</dimen>
     <dimen name="dimen_text_size_16sp">16sp</dimen>
+    <dimen name="dimen_margin_1dp">1dp</dimen>
+    <dimen name="dimen_progress_bar_max_height_10dp">10dp</dimen>
+    <dimen name="dimen_progress_bar_height_15dp">15dp</dimen>
+    <dimen name="dimen_item_height_18dp">18dp</dimen>
+    <dimen name="dimen_progress_bar_height_18dp">18dp</dimen>
+    <dimen name="dimen_progress_bar_height_20dp">20dp</dimen>
+    <dimen name="dimen_text_size_12sp">12sp</dimen>
+    <dimen name="dimen_item_height_30dp">30dp</dimen>
+    <dimen name="dimen_text_size_11sp">11sp</dimen>
+    <dimen name="dimen_item_height_40dp">40dp</dimen>
 </resources>

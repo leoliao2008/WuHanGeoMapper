@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.TextView;
 
-import com.skycaster.wuhanmappingapp.P.SettingPresenter;
+import com.skycaster.wuhanmappingapp.P.SettingActivityPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.base.BaseActivity;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
@@ -13,7 +13,7 @@ import com.skycaster.wuhanmappingapp.interf.iPresenter;
  * Created by 廖华凯 on 2017/8/8.
  */
 
-public class SettingActivity extends BaseActivity<SettingPresenter> {
+public class SettingActivity extends BaseActivity<SettingActivityPresenter> {
     private TextView tv_serialPort;
 
     public static void start(Context context) {
@@ -43,7 +43,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> {
 
     @Override
     protected iPresenter initPresenter() {
-        return new SettingPresenter(this);
+        return new SettingActivityPresenter(this);
     }
 
     @Override

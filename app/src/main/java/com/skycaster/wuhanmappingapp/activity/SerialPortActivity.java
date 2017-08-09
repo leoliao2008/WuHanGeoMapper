@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.skycaster.wuhanmappingapp.P.SerialPortPresenter;
+import com.skycaster.wuhanmappingapp.P.SerialPortActivityPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.base.BaseActivity;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
@@ -17,7 +17,7 @@ import com.skycaster.wuhanmappingapp.interf.iPresenter;
  * Created by 廖华凯 on 2017/8/8.
  */
 
-public class SerialPortActivity extends BaseActivity<SerialPortPresenter> {
+public class SerialPortActivity extends BaseActivity<SerialPortActivityPresenter> {
     private ListView mListView;
     private TextView tv_path;
     private TextView tv_baudRate;
@@ -61,7 +61,7 @@ public class SerialPortActivity extends BaseActivity<SerialPortPresenter> {
 
     @Override
     protected iPresenter initPresenter() {
-        return new SerialPortPresenter(this);
+        return new SerialPortActivityPresenter(this);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class SerialPortActivity extends BaseActivity<SerialPortPresenter> {
 
     @Override
     protected String setActionBarTitle() {
-        return "串口界面";
+        return "串口设置";
     }
 
     @Override

@@ -3,20 +3,20 @@ package com.skycaster.wuhanmappingapp.activity;
 import android.support.annotation.NonNull;
 import android.widget.TextView;
 
-import com.skycaster.wuhanmappingapp.P.SplashPresenter;
+import com.skycaster.wuhanmappingapp.P.SplashActivityPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.base.BaseActivity;
 import com.skycaster.wuhanmappingapp.customized.TwinklingTextView;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
 
-public class SplashActivity extends BaseActivity<SplashPresenter> {
+public class SplashActivity extends BaseActivity<SplashActivityPresenter> {
     private TextView tv_versionCode;
     private TwinklingTextView mTwinklingTextView;
 
 
     @Override
     protected iPresenter initPresenter() {
-        return new SplashPresenter(this);
+        return new SplashActivityPresenter(this);
     }
 
     @Override

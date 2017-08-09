@@ -3,7 +3,7 @@ package com.skycaster.wuhanmappingapp.activity;
 import android.content.Context;
 import android.content.Intent;
 
-import com.skycaster.wuhanmappingapp.P.MapPresenter;
+import com.skycaster.wuhanmappingapp.P.MapActivityPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.base.BaseActivity;
 import com.skycaster.wuhanmappingapp.customized.MapTypeSelector;
@@ -14,7 +14,7 @@ import com.tianditu.android.maps.MapView;
  * Created by 廖华凯 on 2017/8/3.
  */
 
-public class MapActivity extends BaseActivity<MapPresenter>{
+public class MapActivity extends BaseActivity<MapActivityPresenter>{
     private MapView mMapView;
     private MapTypeSelector mMapTypeSelector;
 
@@ -37,8 +37,6 @@ public class MapActivity extends BaseActivity<MapPresenter>{
     protected void initView() {
         mMapView= (MapView) findViewById(R.id.map_activity_map_view);
         mMapTypeSelector = (MapTypeSelector) findViewById(R.id.map_activity_map_selector);
-
-
     }
 
     public MapView getMapView() {
@@ -51,7 +49,7 @@ public class MapActivity extends BaseActivity<MapPresenter>{
 
     @Override
     protected iPresenter initPresenter() {
-        return new MapPresenter(this);
+        return new MapActivityPresenter(this);
     }
 
     @Override

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dimen_radius_3dp"
+        android:layout_margin="@dimen/dimen_margin_5dp">
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_margin_5dp">
+
+            <TextView
+                android:id="@+id/item_local_map_tv_city"
+                android:layout_width="0dp"
+                app:layout_widthPercent="20%"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_text_size_18sp"
+                android:text="深圳"
+                />
+            <LinearLayout
+                android:id="@+id/line1"
+                android:layout_toRightOf="@id/item_local_map_tv_city"
+                android:layout_width="0dp"
+                app:layout_widthPercent="80%"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/item_local_map_tv_map_type"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="类型：矢量图"
+                    style="@style/TextViewStyleLocalMapAdmin"/>
+
+                <TextView
+                    android:id="@+id/item_local_map_tv_version"
+                    style="@style/TextViewStyleLocalMapAdmin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="版本：1.00"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/item_local_map_tv_down_load_status"
+                android:layout_below="@id/line1"
+                android:layout_alignLeft="@id/line1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextViewStyleLocalMapAdmin"
+                android:text="状态：下载中"/>
+            <LinearLayout
+                android:id="@+id/line3"
+                android:layout_below="@id/item_local_map_tv_down_load_status"
+                android:layout_alignLeft="@id/item_local_map_tv_down_load_status"
+                android:layout_width="0dp"
+                app:layout_widthPercent="100%"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/item_local_map_tv_total_size"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="地图大小：108M"
+                    style="@style/TextViewStyleLocalMapAdmin"/>
+                <TextView
+                    android:id="@+id/item_local_map_tv_current_size"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="已下载：58M"
+                    style="@style/TextViewStyleLocalMapAdmin"/>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/line4"
+                android:layout_below="@+id/line3"
+                android:layout_width="0dp"
+                app:layout_widthPercent="80%"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                >
+                <ProgressBar
+                    android:id="@+id/item_local_map_progress_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_progress_bar_height_20dp"
+                    android:padding="@dimen/dimen_padding_5dp"
+                    style="@style/ProgressBarStyleOffLineMap"
+                    android:layout_gravity="center"
+                    android:progress="50"/>
+                <TextView
+                    android:id="@+id/item_local_map_tv_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50%"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/dimen_text_size_12sp"/>
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                app:layout_widthPercent="80%"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line4">
+                <Button
+                    android:id="@+id/item_local_map_btn_delete"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dimen_item_height_40dp"
+                    android:textSize="@dimen/dimen_text_size_11sp"
+                    android:text="删除"/>
+                <Button
+                    android:id="@+id/item_local_map_btn_pause"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dimen_item_height_40dp"
+                    android:textSize="@dimen/dimen_text_size_11sp"
+                    android:text="暂停"/>
+                <Button
+                    android:id="@+id/item_local_map_btn_resume"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dimen_item_height_40dp"
+                    android:textSize="@dimen/dimen_text_size_11sp"
+                    android:text="继续"/>
+                <Button
+                    android:id="@+id/item_local_map_btn_upgrade"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dimen_item_height_40dp"
+                    android:textSize="@dimen/dimen_text_size_11sp"
+                    android:text="升级"/>
+            </LinearLayout>
+
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+</FrameLayout>

@@ -10,7 +10,7 @@ import com.skycaster.wuhanmappingapp.M.SerialPortModel;
 import com.skycaster.wuhanmappingapp.StaticData;
 import com.skycaster.wuhanmappingapp.activity.SplashActivity;
 import com.skycaster.wuhanmappingapp.activity.TabActivity;
-import com.skycaster.wuhanmappingapp.base.BasePresenter;
+import com.skycaster.wuhanmappingapp.base.BaseActivityPresenter;
 import com.skycaster.wuhanmappingapp.customized.TwinklingTextView;
 import com.skycaster.wuhanmappingapp.service.GPGGAService;
 import com.skycaster.wuhanmappingapp.utils.AlertDialogUtil;
@@ -19,10 +19,10 @@ import com.skycaster.wuhanmappingapp.utils.AlertDialogUtil;
  * Created by 廖华凯 on 2017/8/2.
  */
 
-public class SplashPresenter extends BasePresenter<SplashActivity> {
+public class SplashActivityPresenter extends BaseActivityPresenter<SplashActivity> {
     private CheckPermissionModel mCheckPermissionModel;
 
-    public SplashPresenter(SplashActivity activity) {
+    public SplashActivityPresenter(SplashActivity activity) {
         super(activity);
         mCheckPermissionModel=new CheckPermissionModel();
     }
@@ -41,7 +41,7 @@ public class SplashPresenter extends BasePresenter<SplashActivity> {
     }
 
     @Override
-    public void onDetachFromView() {
+    public void onDetachedFromView() {
         mCheckPermissionModel.onDetachFromPresenter();
     }
 

@@ -9,7 +9,7 @@ import com.skycaster.wuhanmappingapp.activity.MapActivity;
 import com.skycaster.wuhanmappingapp.activity.SettingActivity;
 import com.skycaster.wuhanmappingapp.activity.TabActivity;
 import com.skycaster.wuhanmappingapp.adapter.TabAdapter;
-import com.skycaster.wuhanmappingapp.base.BasePresenter;
+import com.skycaster.wuhanmappingapp.base.BaseActivityPresenter;
 import com.skycaster.wuhanmappingapp.bean.TabItem;
 
 import java.util.ArrayList;
@@ -18,13 +18,13 @@ import java.util.ArrayList;
  * Created by 廖华凯 on 2017/8/3.
  */
 
-public class TabPresenter extends BasePresenter<TabActivity> {
+public class TabActivityPresenter extends BaseActivityPresenter<TabActivity> {
     private RecyclerView mRecyclerView;
     private TabAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<TabItem> mList;
 
-    public TabPresenter(TabActivity activity) {
+    public TabActivityPresenter(TabActivity activity) {
         super(activity);
     }
 
@@ -57,8 +57,4 @@ public class TabPresenter extends BasePresenter<TabActivity> {
         });
     }
 
-    @Override
-    public void onDetachFromView() {
-
-    }
 }

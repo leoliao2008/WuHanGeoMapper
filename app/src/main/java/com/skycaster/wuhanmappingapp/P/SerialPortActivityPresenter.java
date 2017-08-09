@@ -21,7 +21,7 @@ import com.skycaster.wuhanmappingapp.M.SerialPortModel;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.StaticData;
 import com.skycaster.wuhanmappingapp.activity.SerialPortActivity;
-import com.skycaster.wuhanmappingapp.base.BasePresenter;
+import com.skycaster.wuhanmappingapp.base.BaseActivityPresenter;
 import com.skycaster.wuhanmappingapp.service.GPGGAService;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ import java.util.ArrayList;
  * Created by 廖华凯 on 2017/8/8.
  */
 
-public class SerialPortPresenter extends BasePresenter<SerialPortActivity> {
+public class SerialPortActivityPresenter extends BaseActivityPresenter<SerialPortActivity> {
     private SerialPortModel mSerialPortModel;
     private ArrayAdapter<String> mAdapter;
     private ArrayList<String> messages=new ArrayList<>();
@@ -39,7 +39,7 @@ public class SerialPortPresenter extends BasePresenter<SerialPortActivity> {
     private AlertDialog mSpConfigDialog;
     private GPGGADataReceiver mDataReceiver;
 
-    public SerialPortPresenter(SerialPortActivity view) {
+    public SerialPortActivityPresenter(SerialPortActivity view) {
         super(view);
         mSerialPortModel=new SerialPortModel();
     }
@@ -164,7 +164,7 @@ public class SerialPortPresenter extends BasePresenter<SerialPortActivity> {
     }
 
     @Override
-    public void onDetachFromView() {
+    public void onDetachedFromView() {
         if(mDataReceiver!=null){
             LocalBroadcastManager.getInstance(getView()).unregisterReceiver(mDataReceiver);
         }
