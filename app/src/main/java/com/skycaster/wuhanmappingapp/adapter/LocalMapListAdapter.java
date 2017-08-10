@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.skycaster.wuhanmappingapp.P.LocalMapItemPresenter;
+import com.skycaster.wuhanmappingapp.P.LocalMapListItemPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.base.MyBaseRecyclerViewAdapter;
 import com.skycaster.wuhanmappingapp.view_holders.LocalMapItemViewHolder;
@@ -26,13 +26,13 @@ public class LocalMapListAdapter extends MyBaseRecyclerViewAdapter<TOfflineMapIn
 
     @Override
     public LocalMapItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new LocalMapItemViewHolder(View.inflate(getContext(), R.layout.item_local_map,null), new LocalMapItemPresenter());
+        return new LocalMapItemViewHolder(View.inflate(getContext(), R.layout.item_local_map,null), new LocalMapListItemPresenter());
     }
 
     @Override
     public void onBindViewHolder(final LocalMapItemViewHolder holder, final int position) {
         final TOfflineMapInfo info = getList().get(position);
-        holder.getPresenter().populateItem(holder, info, new LocalMapItemPresenter.CallBack() {
+        holder.getPresenter().populateItem(holder, info, new LocalMapListItemPresenter.CallBack() {
             @Override
             public void onUpgrade() {
                 mCallBack.onUpgrade(holder,position,info);

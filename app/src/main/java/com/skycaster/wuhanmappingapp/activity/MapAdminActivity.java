@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 
-import com.skycaster.wuhanmappingapp.P.MapAdminPresenter;
+import com.skycaster.wuhanmappingapp.P.MapAdminActivityPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.base.BaseMvpActivity;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
@@ -14,7 +14,7 @@ import com.skycaster.wuhanmappingapp.interf.iPresenter;
  * Created by 廖华凯 on 2017/8/9.
  */
 
-public class MapAdminActivity extends BaseMvpActivity<MapAdminPresenter> {
+public class MapAdminActivity extends BaseMvpActivity<MapAdminActivityPresenter> {
     private ViewPager mViewPager;
     private PagerTabStrip mPagerTabStrip;
 
@@ -49,7 +49,7 @@ public class MapAdminActivity extends BaseMvpActivity<MapAdminPresenter> {
 
     @Override
     protected iPresenter initPresenter() {
-        return new MapAdminPresenter(this);
+        return new MapAdminActivityPresenter(this);
     }
 
     @Override

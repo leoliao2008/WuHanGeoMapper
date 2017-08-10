@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 
 import com.skycaster.wuhanmappingapp.base.BaseMvpActivity;
-import com.skycaster.wuhanmappingapp.P.TabActivityPresenter;
+import com.skycaster.wuhanmappingapp.P.NavigationActivityPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
 
@@ -13,11 +13,11 @@ import com.skycaster.wuhanmappingapp.interf.iPresenter;
  * Created by 廖华凯 on 2017/8/3.
  */
 
-public class TabActivity extends BaseMvpActivity<TabActivityPresenter> {
+public class NavigationActivity extends BaseMvpActivity<NavigationActivityPresenter> {
     private RecyclerView mRecyclerView;
 
     public static void start(Context context) {
-        Intent starter = new Intent(context, TabActivity.class);
+        Intent starter = new Intent(context, NavigationActivity.class);
         context.startActivity(starter);
     }
 
@@ -28,12 +28,12 @@ public class TabActivity extends BaseMvpActivity<TabActivityPresenter> {
 
     @Override
     protected int setContentViewID() {
-        return R.layout.activity_tab;
+        return R.layout.activity_navigation;
     }
 
     @Override
     protected void initView() {
-        mRecyclerView= (RecyclerView) findViewById(R.id.tab_recycler_view);
+        mRecyclerView= (RecyclerView) findViewById(R.id.navigation_recycler_view);
 
     }
 
@@ -43,7 +43,7 @@ public class TabActivity extends BaseMvpActivity<TabActivityPresenter> {
 
     @Override
     protected iPresenter initPresenter() {
-        return new TabActivityPresenter(this);
+        return new NavigationActivityPresenter(this);
     }
 
     @Override

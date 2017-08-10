@@ -3,7 +3,7 @@ package com.skycaster.wuhanmappingapp.fragment;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
-import com.skycaster.wuhanmappingapp.P.LocalMapListPresenter;
+import com.skycaster.wuhanmappingapp.P.LocalMapsFragmentPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.base.BaseFragment;
 
@@ -11,15 +11,15 @@ import com.skycaster.wuhanmappingapp.base.BaseFragment;
  * Created by 廖华凯 on 2017/8/9.
  */
 
-public class LocalMapListFragment extends BaseFragment<LocalMapListPresenter> {
+public class LocalMapListFragment extends BaseFragment<LocalMapsFragmentPresenter> {
 
     private RecyclerView mRecyclerView;
     private ImageView tv_noData;
 
 
     @Override
-    protected LocalMapListPresenter instantiatePresenter() {
-        return new LocalMapListPresenter(this);
+    protected LocalMapsFragmentPresenter instantiatePresenter() {
+        return new LocalMapsFragmentPresenter(this);
     }
 
     @Override

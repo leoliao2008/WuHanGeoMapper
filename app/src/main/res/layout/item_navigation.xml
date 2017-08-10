@@ -7,12 +7,12 @@
     android:gravity="center"
     android:padding="@dimen/dimen_padding_10dp">
     <ImageView
-        android:id="@+id/iv_tab_icon"
+        android:id="@+id/iv_navigation_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_navi"/>
     <TextView
-        android:id="@+id/tv_tab_title"
+        android:id="@+id/tv_navigation_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="地图页面"

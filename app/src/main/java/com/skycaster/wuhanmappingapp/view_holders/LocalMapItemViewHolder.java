@@ -5,7 +5,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.skycaster.wuhanmappingapp.P.LocalMapItemPresenter;
+import com.skycaster.wuhanmappingapp.P.LocalMapListItemPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.base.BaseViewHolderWithPresenter;
 
@@ -13,7 +13,7 @@ import com.skycaster.wuhanmappingapp.base.BaseViewHolderWithPresenter;
  * Created by 廖华凯 on 2017/8/9.
  */
 
-public class LocalMapItemViewHolder extends BaseViewHolderWithPresenter<LocalMapItemPresenter> {
+public class LocalMapItemViewHolder extends BaseViewHolderWithPresenter<LocalMapListItemPresenter> {
     private TextView tv_city;
     private TextView tv_type;
     private TextView tv_version;
@@ -27,7 +27,7 @@ public class LocalMapItemViewHolder extends BaseViewHolderWithPresenter<LocalMap
     private Button btn_resume;
     private Button btn_upgrade;
 
-    public LocalMapItemViewHolder(View itemView, LocalMapItemPresenter presenter) {
+    public LocalMapItemViewHolder(View itemView, LocalMapListItemPresenter presenter) {
         super(itemView, presenter);
     }
 

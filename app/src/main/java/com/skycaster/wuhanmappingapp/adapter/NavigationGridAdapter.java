@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.base.BaseViewHolder;
-import com.skycaster.wuhanmappingapp.bean.TabItem;
+import com.skycaster.wuhanmappingapp.bean.NavigationItem;
 
 import java.util.ArrayList;
 
@@ -17,25 +17,25 @@ import java.util.ArrayList;
  * Created by 廖华凯 on 2017/8/3.
  */
 
-public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ViewHolder> {
+public class NavigationGridAdapter extends RecyclerView.Adapter<NavigationGridAdapter.ViewHolder> {
 
-    private ArrayList<TabItem> mList;
+    private ArrayList<NavigationItem> mList;
     private Context mContext;
     private OnItemClickListener mOnItemClickListener;
 
-    public TabAdapter(ArrayList<TabItem> list, Context context) {
+    public NavigationGridAdapter(ArrayList<NavigationItem> list, Context context) {
         mList = list;
         mContext = context;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(View.inflate(mContext, R.layout.item_tab,null));
+        return new ViewHolder(View.inflate(mContext, R.layout.item_navigation,null));
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        final TabItem item = mList.get(position);
+        final NavigationItem item = mList.get(position);
         holder.iv_imageView.setImageResource(item.getImageSrc());
         holder.tv_title.setText(item.getTitle());
 
@@ -59,7 +59,7 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ViewHolder> {
     }
 
     public interface OnItemClickListener{
-        void onItemClick(TabItem item,int position);
+        void onItemClick(NavigationItem item, int position);
     }
 
 
@@ -73,8 +73,8 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ViewHolder> {
 
         @Override
         protected void initChildViews() {
-            tv_title= (TextView) findViewById(R.id.tv_tab_title);
-            iv_imageView= (ImageView) findViewById(R.id.iv_tab_icon);
+            tv_title= (TextView) findViewById(R.id.tv_navigation_title);
+            iv_imageView= (ImageView) findViewById(R.id.iv_navigation_icon);
         }
     }
 

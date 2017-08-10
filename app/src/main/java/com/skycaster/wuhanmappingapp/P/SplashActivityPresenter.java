@@ -9,7 +9,7 @@ import com.skycaster.wuhanmappingapp.M.CheckPermissionModel;
 import com.skycaster.wuhanmappingapp.M.SerialPortModel;
 import com.skycaster.wuhanmappingapp.StaticData;
 import com.skycaster.wuhanmappingapp.activity.SplashActivity;
-import com.skycaster.wuhanmappingapp.activity.TabActivity;
+import com.skycaster.wuhanmappingapp.activity.NavigationActivity;
 import com.skycaster.wuhanmappingapp.base.BaseActivityPresenter;
 import com.skycaster.wuhanmappingapp.customized.TwinklingTextView;
 import com.skycaster.wuhanmappingapp.service.GPGGAService;
@@ -70,7 +70,7 @@ public class SplashActivityPresenter extends BaseActivityPresenter<SplashActivit
         getView().getTwinklingTextView().setAutoCycleListener(new TwinklingTextView.GradientAutoCycleListener() {
             @Override
             public void onCycleComplete() {
-                TabActivity.start(getView());
+                NavigationActivity.start(getView());
                 getView().finish();
             }
         });

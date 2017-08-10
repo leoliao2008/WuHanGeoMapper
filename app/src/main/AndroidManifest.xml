@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.TabActivity"
+            android:name=".activity.NavigationActivity"
             android:theme="@style/AppThemeNoActionBar"/>
         <activity
             android:name=".activity.MapActivity"

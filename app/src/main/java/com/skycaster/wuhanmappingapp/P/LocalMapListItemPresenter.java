@@ -21,7 +21,7 @@ import com.tianditu.android.maps.TOfflineMapManager;
  * Created by 廖华凯 on 2017/8/9.
  */
 
-public class LocalMapItemPresenter implements iPresenter {
+public class LocalMapListItemPresenter implements iPresenter {
     private LocalMapItemViewHolder mView;
     private TOfflineMapInfo mInfo;
     private CallBack mCallBack;

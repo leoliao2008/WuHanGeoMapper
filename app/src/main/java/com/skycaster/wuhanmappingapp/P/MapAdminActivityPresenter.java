@@ -12,9 +12,9 @@ import com.skycaster.wuhanmappingapp.base.BaseActivityPresenter;
  * Created by 廖华凯 on 2017/8/9.
  */
 
-public class MapAdminPresenter extends BaseActivityPresenter<MapAdminActivity> {
+public class MapAdminActivityPresenter extends BaseActivityPresenter<MapAdminActivity> {
     private MapAdminPagerAdapter mAdapter;
-    public MapAdminPresenter(MapAdminActivity view) {
+    public MapAdminActivityPresenter(MapAdminActivity view) {
         super(view);
     }
 

@@ -18,14 +18,14 @@ import java.util.ArrayList;
  * Created by 廖华凯 on 2017/8/9.
  */
 
-public class LocalMapListPresenter extends BaseFragmentPresenter<LocalMapListFragment> {
+public class LocalMapsFragmentPresenter extends BaseFragmentPresenter<LocalMapListFragment> {
     private LocalMapListAdapter mAdapter;
     private ArrayList<TOfflineMapInfo> mDownLoadedList=new ArrayList<>();
     private RecyclerView.LayoutManager mLayoutManager;
     private MapAdminModel mMapAdminModel;
 
 
-    public LocalMapListPresenter(LocalMapListFragment view) {
+    public LocalMapsFragmentPresenter(LocalMapListFragment view) {
         super(view);
         mMapAdminModel=new MapAdminModel(getView().getActivity());
     }
