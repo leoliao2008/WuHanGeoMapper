@@ -15,7 +15,7 @@ import com.skycaster.wuhanmappingapp.interf.iPresenter;
  * Created by 廖华凯 on 2017/8/2.
  */
 
-public abstract class BaseActivity<P extends iPresenter> extends AppCompatActivity {
+public abstract class BaseMvpActivity<P extends iPresenter> extends AppCompatActivity {
 
     private iPresenter mPresenter;
     private ActionBar mActionBar;

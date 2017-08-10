@@ -39,4 +39,6 @@ public interface StaticData {
     String MAP_STATUS="MAP_STATUS";
     String MAP_DOWN_LOADED_SIZE="MAP_DOWN_LOADED_SIZE";
     String MAP_NAME = "MAP_NAME";
+    String LOCAL_MAP_PATH="/sdcard/tianditu/staticmap/";
+    String MAP_VIEW_CACHE_PATH="/sdcard/tianditu/map/";
 }

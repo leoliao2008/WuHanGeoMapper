@@ -1,6 +1,5 @@
 package com.skycaster.wuhanmappingapp.base;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -30,9 +29,10 @@ public abstract class BaseFragment<P extends iPresenter> extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         initChildViews();
         initData();
-        instantiatePresenter();
+        mPresenter=instantiatePresenter();
         mPresenter.initData();
         initListeners();
+        mPresenter.onAttachedToView();
     }
 
     protected abstract int setRootViewId();
@@ -50,12 +50,6 @@ public abstract class BaseFragment<P extends iPresenter> extends Fragment {
 
     public void setPresenter(P presenter) {
         mPresenter = presenter;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mPresenter.onAttachedToView();
     }
 
     @Override

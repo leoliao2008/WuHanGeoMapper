@@ -23,16 +23,17 @@ public class AlertDialogUtil {
                         onConfirm.run();
                         alertDialog.dismiss();
                     }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(onCancel!=null){
+                            onCancel.run();
+                        }
+                        alertDialog.dismiss();
+                    }
+
                 });
-        if(onCancel!=null){
-            builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    onCancel.run();
-                    alertDialog.dismiss();
-                }
-            });
-        }
         alertDialog=builder.create();
         alertDialog.show();
     }

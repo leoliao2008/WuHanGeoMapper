@@ -5,7 +5,7 @@ import android.content.Intent;
 
 import com.skycaster.wuhanmappingapp.P.MapActivityPresenter;
 import com.skycaster.wuhanmappingapp.R;
-import com.skycaster.wuhanmappingapp.base.BaseActivity;
+import com.skycaster.wuhanmappingapp.base.BaseMvpActivity;
 import com.skycaster.wuhanmappingapp.customized.MapTypeSelector;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
 import com.tianditu.android.maps.MapView;
@@ -14,7 +14,7 @@ import com.tianditu.android.maps.MapView;
  * Created by 廖华凯 on 2017/8/3.
  */
 
-public class MapActivity extends BaseActivity<MapActivityPresenter>{
+public class MapActivity extends BaseMvpActivity<MapActivityPresenter> {
     private MapView mMapView;
     private MapTypeSelector mMapTypeSelector;
 

@@ -5,11 +5,11 @@ import android.widget.TextView;
 
 import com.skycaster.wuhanmappingapp.P.SplashActivityPresenter;
 import com.skycaster.wuhanmappingapp.R;
-import com.skycaster.wuhanmappingapp.base.BaseActivity;
+import com.skycaster.wuhanmappingapp.base.BaseMvpActivity;
 import com.skycaster.wuhanmappingapp.customized.TwinklingTextView;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
 
-public class SplashActivity extends BaseActivity<SplashActivityPresenter> {
+public class SplashActivity extends BaseMvpActivity<SplashActivityPresenter> {
     private TextView tv_versionCode;
     private TwinklingTextView mTwinklingTextView;
 

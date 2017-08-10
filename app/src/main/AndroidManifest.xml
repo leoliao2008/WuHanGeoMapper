@@ -41,7 +41,7 @@
         <activity android:name=".activity.SettingActivity"/>
         <activity android:name=".activity.SerialPortActivity"/>
         <service android:name=".service.GPGGAService"/>
-        <activity android:name=".activity.OffLineMapAdminActivity"/>
+        <activity android:name=".activity.MapAdminActivity"/>
     </application>
 
 </manifest>

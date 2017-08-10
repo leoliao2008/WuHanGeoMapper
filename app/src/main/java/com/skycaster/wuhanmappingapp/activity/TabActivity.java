@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 
-import com.skycaster.wuhanmappingapp.base.BaseActivity;
+import com.skycaster.wuhanmappingapp.base.BaseMvpActivity;
 import com.skycaster.wuhanmappingapp.P.TabActivityPresenter;
 import com.skycaster.wuhanmappingapp.R;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
@@ -13,7 +13,7 @@ import com.skycaster.wuhanmappingapp.interf.iPresenter;
  * Created by 廖华凯 on 2017/8/3.
  */
 
-public class TabActivity extends BaseActivity<TabActivityPresenter> {
+public class TabActivity extends BaseMvpActivity<TabActivityPresenter> {
     private RecyclerView mRecyclerView;
 
     public static void start(Context context) {

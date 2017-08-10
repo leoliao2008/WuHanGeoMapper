@@ -6,8 +6,18 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/setting_map_admin"
+        android:text="地图管理"
+        style="@style/TextViewStyleSetting"/>
+
+    <TextView
         android:id="@+id/setting_serial_port"
         android:text="串口设置"
+        style="@style/TextViewStyleSetting"/>
+
+    <TextView
+        android:id="@+id/setting_about_us"
+        android:text="关于我们"
         style="@style/TextViewStyleSetting"/>
 
 </LinearLayout>

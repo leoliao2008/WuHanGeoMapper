@@ -6,7 +6,7 @@ import com.skycaster.wuhanmappingapp.interf.iPresenter;
  * Created by 廖华凯 on 2017/8/3.
  */
 
-public abstract class BaseActivityPresenter<V extends BaseActivity> implements iPresenter {
+public abstract class BaseActivityPresenter<V extends BaseMvpActivity> implements iPresenter {
     private V mView;
 
     public BaseActivityPresenter(V view) {

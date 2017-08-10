@@ -27,4 +27,6 @@
     <dimen name="dimen_item_height_30dp">30dp</dimen>
     <dimen name="dimen_text_size_11sp">11sp</dimen>
     <dimen name="dimen_item_height_40dp">40dp</dimen>
+    <dimen name="dimen_padding_15dp">15dp</dimen>
+    <dimen name="dimen_padding_12dp">12dp</dimen>
 </resources>

@@ -166,8 +166,9 @@ public class LocalMapItemPresenter implements iPresenter {
         public void onReceive(Context context, Intent intent) {
             int status = intent.getIntExtra(StaticData.MAP_STATUS, TOfflineMapManager.OFFLINEMAP_DOWNLOAD_UNDEFINE);
             int loadedSize = intent.getIntExtra(StaticData.MAP_DOWN_LOADED_SIZE, 0);
+            int mapType = intent.getIntExtra(StaticData.MAP_TYPE, 0);
             String cityName=intent.getStringExtra(StaticData.MAP_NAME);
-            if(!TextUtils.isEmpty(cityName)&&cityName.equals(mInfo.getCity())){
+            if(!TextUtils.isEmpty(cityName)&&cityName.equals(mInfo.getCity())&&mapType==mInfo.getType()){
                 updateItemView(status,loadedSize);
             }
         }

@@ -25,6 +25,7 @@
                 android:layout_centerVertical="true"
                 android:gravity="center"
                 android:textSize="@dimen/dimen_text_size_18sp"
+                android:textColor="@color/colorBlack"
                 android:text="深圳"
                 />
             <LinearLayout

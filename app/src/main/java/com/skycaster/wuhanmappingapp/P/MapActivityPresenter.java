@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.ActionBar;
 
 import com.skycaster.inertial_navi_lib.GPGGABean;
 import com.skycaster.inertial_navi_lib.NaviDataExtractor;
@@ -43,10 +42,7 @@ public class MapActivityPresenter extends BaseActivityPresenter<MapActivity> {
 
     @Override
     public void initData() {
-        ActionBar actionBar = getView().getSupportActionBar();
-        if(actionBar!=null){
-            actionBar.setTitle("地图页面");
-        }
+
         mMapFunctionModel.initMapView(mMapView);
 
         mMapFunctionModel.initMapTypeSelector(getView().getMapTypeSelector(),mMapView);

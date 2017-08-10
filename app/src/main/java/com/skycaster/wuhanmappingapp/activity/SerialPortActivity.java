@@ -10,14 +10,14 @@ import android.widget.TextView;
 
 import com.skycaster.wuhanmappingapp.P.SerialPortActivityPresenter;
 import com.skycaster.wuhanmappingapp.R;
-import com.skycaster.wuhanmappingapp.base.BaseActivity;
+import com.skycaster.wuhanmappingapp.base.BaseMvpActivity;
 import com.skycaster.wuhanmappingapp.interf.iPresenter;
 
 /**
  * Created by 廖华凯 on 2017/8/8.
  */
 
-public class SerialPortActivity extends BaseActivity<SerialPortActivityPresenter> {
+public class SerialPortActivity extends BaseMvpActivity<SerialPortActivityPresenter> {
     private ListView mListView;
     private TextView tv_path;
     private TextView tv_baudRate;

@@ -40,6 +40,9 @@ public class MapFunctionModel implements iModel {
         mapView.setBuiltInZoomControls(true);
         mapView.setDoubleTapEnable(true);
         mapView.setLogoPos(MapView.LOGO_RIGHT_BOTTOM);
+        if(new ExternalStorageModel().checkIfSdCardAvailable()){
+            mapView.setCachePath(StaticData.MAP_VIEW_CACHE_PATH);
+        }
         final int mapType = BaseApplication.getSharedPreferences().getInt(StaticData.MAP_TYPE, 0);
         switch (mapType){
             case 1:

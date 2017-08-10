@@ -2,6 +2,7 @@ package com.skycaster.wuhanmappingapp.P;
 
 import android.view.View;
 
+import com.skycaster.wuhanmappingapp.activity.MapAdminActivity;
 import com.skycaster.wuhanmappingapp.activity.SerialPortActivity;
 import com.skycaster.wuhanmappingapp.activity.SettingActivity;
 import com.skycaster.wuhanmappingapp.base.BaseActivityPresenter;
@@ -22,6 +23,20 @@ public class SettingActivityPresenter extends BaseActivityPresenter<SettingActiv
             @Override
             public void onClick(View v) {
                 SerialPortActivity.start(getView());
+            }
+        });
+
+        getView().getTv_mapAdmin().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MapAdminActivity.start(getView());
+            }
+        });
+
+        getView().getTv_aboutUs().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
